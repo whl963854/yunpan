@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>XDiskClass</class>
+ <widget class="QMainWindow" name="XDiskClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>681</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>xdisk</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>服务器路径</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="pathEdit">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>.</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>服务器IP</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="ipEdit">
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>127.0.0.1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>服务器端口</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QSpinBox" name="portBox">
+      <property name="maximum">
+       <number>65535</number>
+      </property>
+      <property name="value">
+       <number>21002</number>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="refreshButton">
+      <property name="text">
+       <string>刷新</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QPushButton" name="uploadButton">
+      <property name="text">
+       <string>上传</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QPushButton" name="downloadButton">
+      <property name="text">
+       <string>下载</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1">
+     <widget class="QPushButton" name="deleteBtn">
+      <property name="text">
+       <string>删除</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="1">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="0" rowspan="11">
+     <widget class="QTableWidget" name="fileListWidget">
+      <property name="styleSheet">
+       <string notr="true">QScrollBar:vertical{ 
+    width:8px;  
+    border-radius: 4px;
+    border:0px;
+    background: #000000;
+} 
+QScrollBar::handle:vertical{ 
+    background: #dbdbdb;
+    border-radius: 4px;
+    width:8px; 
+    min-height:91px; 
+}
+QScrollBar::handle:vertical::hover{ 
+    background: #d0d0d0;
+    border-radius: 4px;
+    width:8px; 
+}
+QScrollBar::handle:vertical::pressed{ 
+    background: #d0d0d0;
+    border-radius:4px;
+    width:8px; 
+}
+</string>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <column>
+       <property name="text">
+        <string>文件名</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>文件大小</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="xdisk.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>refreshButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XDiskClass</receiver>
+   <slot>refresh()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>553</x>
+     <y>150</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>693</x>
+     <y>292</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>uploadButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XDiskClass</receiver>
+   <slot>upload()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>600</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>722</x>
+     <y>259</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>downloadButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XDiskClass</receiver>
+   <slot>download()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>576</x>
+     <y>210</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>738</x>
+     <y>354</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deleteBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>XDiskClass</receiver>
+   <slot>deleteFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>530</x>
+     <y>234</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>636</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>upload()</slot>
+  <slot>download()</slot>
+  <slot>refresh()</slot>
+  <slot>deleteFile()</slot>
+ </slots>
+</ui>
